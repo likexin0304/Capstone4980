@@ -14,19 +14,19 @@ export class LoginPage {
   constructor(private afAuth: AngularFireAuth,
     public navCtrl: NavController, public navParams: NavParams) {
   }
- 
+
   async login(user: User) {
     try {
       const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if (result) {
-        this.navCtrl.setRoot('HomePage');
-      }  
+        this.navCtrl.setRoot('ProfileEmployeesPage'); //transfer to profile-employess page
+      }
     }
     catch (e) {
       console.error(e);
     }
   }
- 
+
   register() {
     this.navCtrl.push('RegisterPage');
   }
